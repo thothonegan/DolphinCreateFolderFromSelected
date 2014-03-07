@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Service
+Encoding=UTF-8
+Version=0.0.1
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=application/octet-stream;
+Actions=CreateDirectoryFromSelected;
+
+[Desktop Action CreateDirectoryFromSelected]
+Name=Create New Folder From Selected
+Icon=folder
+Exec=/bin/bash -c 'folderName=`kdialog --inputbox "Folder Name" "New Folder"`; if [ $? -eq 0 ]; then basedir=$(dirname %F | head -n1); mkdir "$basedir/$folderName"; mv %F "$basedir/$folderName";fi'
